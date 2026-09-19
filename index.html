@@ -76,7 +76,11 @@ svg{display:block;}
 
 /* ---------- Portada ---------- */
 .hero{padding-top:30px;padding-bottom:6px;}
-.hero h1{font:800 clamp(2.5rem,12.4vw,3.6rem)/1.02 var(--sans);color:var(--navy);letter-spacing:-.015em;margin:6px 0 14px;}
+.hero .q{font-size:1.9rem;}
+.hero h1{font:800 clamp(2.15rem,11.2vw,3.5rem)/1.04 var(--sans);color:var(--navy);letter-spacing:.005em;margin:8px 0 10px;}
+.tres{margin:0 0 18px;}
+.tres b{display:block;font:800 clamp(1.15rem,5.6vw,1.6rem)/1.15 var(--sans);letter-spacing:.06em;color:var(--navy);}
+.tres .script{display:block;font-size:1.75rem;margin-top:2px;}
 .lead{font-size:1.125rem;line-height:1.5;color:var(--ink);max-width:34ch;}
 .ticket{position:relative;margin:38px 0 22px;background:var(--navy);color:#fff;border-radius:22px;padding:18px 18px 16px;min-height:150px;}
 .ticket .when b{display:block;font:800 1.2rem/1.2 var(--sans);color:var(--gold-light);}
@@ -112,6 +116,7 @@ svg{display:block;}
 .trail .m-km{font:500 14.5px var(--sans);fill:var(--muted);}
 .trail .m-off .m-name{fill:#3E5872;}
 .trail .marker{transition:transform 1.6s cubic-bezier(.22,.8,.3,1);}
+.sec-camino.counting .marker,.sec-camino.counting .bar-fill{transition:none!important;}
 .trail .pulse{fill:var(--gold);opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2.2s ease-out infinite;}
 .trail .m-note{font:400 22px var(--script);fill:var(--sky-deep);}
 .trail .pill-t{font:800 15px var(--sans);fill:var(--navy-deep);}
@@ -121,21 +126,30 @@ svg{display:block;}
 .net-err{margin-top:14px;padding:12px 14px;border-radius:14px;background:#FFF3D6;color:#5C4300;font-weight:700;display:none;}
 .net-err button{margin-top:8px;}
 
-/* Ranking */
-.rank{list-style:none;margin:20px 0 0;padding:0;}
-.rank li{padding:14px 0 16px;border-bottom:1.5px solid var(--line);}
-.rank li:last-child{border-bottom:0;}
-.r-top{display:flex;align-items:center;gap:12px;}
-.r-pos{flex:0 0 36px;height:36px;border-radius:50%;background:var(--sky-soft);color:var(--navy);font:800 1.0625rem/36px var(--sans);text-align:center;}
-.rank li:first-child .r-pos{background:var(--gold);color:var(--navy-deep);}
-.r-name{flex:1;font:700 1.0625rem/1.25 var(--sans);color:var(--ink);}
-.r-name i{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:99px;background:var(--navy);color:#fff;font:700 .8125rem/1.5 var(--sans);font-style:normal;vertical-align:1px;}
-.r-km{font:800 1.125rem/1 var(--sans);color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums;}
-.r-bar{height:12px;border-radius:99px;background:#EADFC4;margin:10px 0 0 48px;overflow:hidden;}
-.r-bar span{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width 1.2s cubic-bezier(.22,.8,.3,1);}
-.rank li.sin .r-pos{background:transparent;box-shadow:inset 0 0 0 2px var(--line);color:var(--muted);}
-.rank li.sin .r-bar span{background:var(--sky);}
-.rank-note{margin-top:10px;font-size:.9375rem;color:var(--muted);}
+/* Las ramas (panal) */
+.ramas{margin-top:22px;}
+.ramas svg{display:block;width:100%;height:auto;overflow:visible;}
+.rank-note{margin-top:14px;font-size:1rem;color:var(--muted);text-align:center;}
+.rank-note b{color:var(--navy);}
+.r-sin{margin-top:16px;padding-top:14px;border-top:1.5px solid var(--line);display:flex;justify-content:space-between;gap:12px;font:700 1.0625rem/1.3 var(--sans);color:var(--navy);}
+.r-sin span:first-child{font-weight:500;color:var(--muted);}
+.ramas svg.star{display:inline-block;width:18px;height:18px;vertical-align:-3px;margin:0 0 0 6px;overflow:visible;}
+.tu{display:inline-block;margin-left:8px;padding:1px 10px;border-radius:99px;background:var(--navy);color:#fff;font:700 .8125rem/1.5 var(--sans);vertical-align:2px;}
+
+/* panal */
+.hx-base{fill:#EFE6CD;stroke:#DCCFA6;stroke-width:2;}
+.hx-fill{fill:#E2C77C;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform 1.3s cubic-bezier(.22,.8,.3,1) var(--d,0s);}
+.ramas.play .hx-fill{transform:scaleY(var(--p));}
+.hx-edge{fill:none;stroke:transparent;stroke-width:2;}
+.hx-mine{fill:none;stroke:var(--navy);stroke-width:4.5;}
+/* versión más liviana (?panal=2) */
+.ramas.min .hx-base{fill:#F2EBD8;stroke:none;}
+.ramas.min .hx-fill{fill:#EBD69C;}
+.ramas.min .hx-name{fill:#3E5872;font-size:12px;}
+.ramas.min .hx-km{font-size:17px;}
+.ramas.min .hx-mine{stroke-width:3;}
+.hx-name{font:500 12.5px var(--sans);fill:#1B3550;text-anchor:middle;}
+.hx-km{font:800 16px var(--sans);fill:var(--navy);text-anchor:middle;font-variant-numeric:tabular-nums;}
 
 /* Cómo se suma */
 .how{list-style:none;margin:20px 0 0;padding:0;}
@@ -148,7 +162,8 @@ svg{display:block;}
 .how .tx small{display:block;font:500 .9375rem/1.35 var(--sans);color:var(--muted);margin-top:1px;}
 .how .cnt{font:800 1.0625rem/1 var(--sans);color:var(--navy);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
 .how .cnt small{display:block;font:500 .8125rem/1.2 var(--sans);color:var(--muted);margin-top:3px;}
-.rule{margin-top:18px;background:var(--gold-light);color:var(--navy-deep);border-radius:16px;padding:14px 16px;font-weight:700;text-align:center;}
+.rule{margin-top:30px;color:var(--navy);font:400 1.65rem/1.15 var(--script);text-align:center;text-wrap:balance;}
+.rule::before{content:"";display:block;width:56px;height:3px;border-radius:3px;background:var(--gold);margin:0 auto 14px;}
 
 /* Compartir */
 .sec-share{background:var(--navy);color:#fff;margin-top:44px;padding:44px 0 48px;}
@@ -271,8 +286,9 @@ body.lock .bar{display:none;}
 
   <!-- ================= PORTADA ================= -->
   <header class="hero wrap">
-    <p class="script">Con María, peregrinos de esperanza</p>
-    <h1>Capital<br>de gracias</h1>
+    <p class="script q">“Con María, peregrinos de esperanza”</p>
+    <h1>CAPITAL<br>DE GRACIAS</h1>
+    <p class="tres"><b>3° PEREGRINACIÓN</b><span class="script">al Santuario de Schoenstatt</span></p>
     <p class="lead">Sumá km con tus oraciones y caminemos juntos, desde Tucumán hasta el Santuario original de Schoenstatt, en Alemania.</p>
 
     <div class="ticket">
@@ -305,12 +321,12 @@ body.lock .bar{display:none;}
     </div>
   </section>
 
-  <!-- ================= COMPETENCIA ================= -->
+  <!-- ================= LAS RAMAS ================= -->
   <section class="sec" id="ranking">
     <div class="wrap">
-      <h2>Competencia entre ramas</h2>
-      <p class="sub">¿Qué rama aporta más km? Elegí tu rama cuando sumes tu aporte.</p>
-      <ol class="rank" id="rank"></ol>
+      <h2>Las ramas en camino</h2>
+      <p class="sub">Cada rama suma sus propios km al camino. ¿Cuánto lleva la tuya?</p>
+      <div class="ramas" id="ramas"></div>
       <p class="rank-note" id="rank-note"></p>
     </div>
   </section>
@@ -321,7 +337,7 @@ body.lock .bar{display:none;}
       <h2>¿Cómo se suma?</h2>
       <p class="sub">Todo lo que ofrezcas suma. Estos son los aportes:</p>
       <ul class="how" id="how"></ul>
-      <p class="rule">Cada aporte equivale a 1 km</p>
+      <p class="rule"><span>Cada aporte equivale a 1 km</span></p>
     </div>
   </section>
 
@@ -602,10 +618,12 @@ async function pushAporte(rama,tipo,cantidad){
 let refreshing=false;
 async function refresh(){
   if(refreshing) return; refreshing=true;
+  const wasLoaded=state.loaded;
   try{ absorb(await fetchResumen()); }
   catch(e){ console.error('Error al leer los aportes:', e); state.failed=true; }
   refreshing=false;
   renderAll();
+  if(!wasLoaded && state.loaded){ if(inView($('#camino'))) runCount(); if(inView($('#ranking'))) replayRamas(true); }
   buildShots();
 }
 
@@ -680,8 +698,9 @@ function buildTrail(){
   $('#trail').innerHTML=s;
   $('#tr-rect').setAttribute('width','128');
 }
-function updateTrail(){
-  const frac=Math.min(1,state.total/CFG.TOTAL_KM), p=at(frac);
+function updateTrail(fr){
+  if(counting && fr==null) return;
+  const frac = fr!=null ? fr : ((camHidden && !REDUCED) ? 0 : Math.min(1,state.total/CFG.TOTAL_KM)), p=at(frac);
   $$('#trail .hu').forEach(u=>{ u.classList.toggle('done', parseFloat(u.dataset.fr)<=frac); });
   $$('#trail .m').forEach(g=>{ g.classList.toggle('m-off', parseFloat(g.dataset.f)>frac); const c=g.querySelector('circle'); if(parseFloat(g.dataset.f)<=frac+1e-9){ c.setAttribute('fill','#C9A95A'); c.setAttribute('stroke','#032F58'); } else { c.setAttribute('fill','#fff'); c.setAttribute('stroke','#3F78BC'); } });
   const mk=$('#tr-marker'); if(mk) mk.style.transform='translate('+p.x.toFixed(1)+'px,'+p.y.toFixed(1)+'px)';
@@ -705,13 +724,39 @@ function rankData(){
   list.sort((a,b)=>b.km-a.km||a.i-b.i);
   return list;
 }
+let counting=false, cntRAF=0, camHidden=false;
+const REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function faltanTxt(v){ const f=Math.max(0,CFG.TOTAL_KM-v); return f>0 ? 'Nos faltan '+fmt(f)+' km para llegar' : '¡Llegamos al Santuario de Schoenstatt!'; }
+function paintCount(v){
+  const frac=Math.min(1,v/CFG.TOTAL_KM);
+  $('#km-total').textContent=fmt(v);
+  $('#bar-fill').style.width=(v>0?Math.max(2,frac*100):0)+'%';
+  $('#faltan').textContent=faltanTxt(v);
+  updateTrail(frac);
+}
+/* Cada vez que se entra al contador, los km suben rápido desde 0 */
+function runCount(){
+  if(!state.loaded || state.total<=0 || REDUCED) return;
+  cancelAnimationFrame(cntRAF);
+  const sec=$('#camino'), t0=performance.now(), D=1300;
+  counting=true; sec.classList.add('counting');
+  (function frame(now){
+    const k=Math.min(1,Math.max(0,(now-t0)/D)), e=1-Math.pow(1-k,3);
+    paintCount(state.total*e);
+    if(k<1){ cntRAF=requestAnimationFrame(frame); }
+    else { counting=false; sec.classList.remove('counting'); renderNumbers(); updateTrail(); }
+  })(t0);
+}
+function inView(el){ const r=el.getBoundingClientRect(); return r.top<innerHeight*.7 && r.bottom>innerHeight*.3; }
 function renderNumbers(){
   const total=state.total, frac=Math.min(1,total/CFG.TOTAL_KM);
-  $('#km-total').textContent = state.loaded ? fmt(total) : '–';
-  $('#bar-fill').style.width = (total>0?Math.max(2,frac*100):0)+'%';
+  if(!counting){
+    const sh = (camHidden && !REDUCED) ? 0 : total, fs = Math.min(1,sh/CFG.TOTAL_KM);   // fuera de pantalla queda en 0, listo para contar al entrar
+    $('#km-total').textContent = state.loaded ? fmt(sh) : '–';
+    $('#bar-fill').style.width = (sh>0?Math.max(2,fs*100):0)+'%';
+    $('#faltan').textContent = !state.loaded ? '' : faltanTxt(sh);
+  }
   $('#bar-a11y').setAttribute('aria-valuenow', Math.round(total));
-  const falta=Math.max(0,CFG.TOTAL_KM-total);
-  $('#faltan').textContent = !state.loaded ? '' : (falta>0 ? 'Nos faltan '+fmt(falta)+' km para llegar' : '¡Llegamos al Santuario de Schoenstatt!');
   // próxima parada
   const nxt=HITOS.filter(h=>h.f*CFG.TOTAL_KM>total)[0];
   const el=$('#next');
@@ -721,18 +766,50 @@ function renderNumbers(){
   else { el.innerHTML='Próxima parada: <b>'+nxt.name+'</b>, a '+fmt(nxt.f*CFG.TOTAL_KM-total)+' km.'; }
   $('#net-err').style.display = state.failed ? 'block' : 'none';
 }
-function renderRank(){
-  const list=rankData(), max=Math.max(1,list[0].km);
-  let h='';
-  list.forEach((it,idx)=>{
-    const pct = it.km>0 ? Math.max(3,it.km/max*100) : 0;
-    h+='<li><div class="r-top"><span class="r-pos">'+(idx+1)+'°</span><span class="r-name">'+it.r.name+(myRama===it.r.id?'<i>Tu rama</i>':'')+'</span><span class="r-km">'+fmt(it.km)+' km</span></div><div class="r-bar"><span style="width:'+pct.toFixed(1)+'%"></span></div></li>';
-  });
-  const sk=state.byRama.sin_rama||0;
-  h+='<li class="sin"><div class="r-top"><span class="r-pos">+</span><span class="r-name">'+SIN_RAMA.rankName+(myRama==='sin_rama'?'<i>Tu grupo</i>':'')+'</span><span class="r-km">'+fmt(sk)+' km</span></div><div class="r-bar"><span style="width:'+(sk>0?Math.max(3,sk/max*100):0).toFixed(1)+'%"></span></div></li>';
-  $('#rank').innerHTML=h;
-  $('#rank-note').textContent = state.total===0 ? 'Todavía no hay aportes. ¡Sé la primera persona en sumar para tu rama!' : 'Los fieles sin rama suman al camino, pero no entran en la competencia.';
+/* ---------- Las ramas (panal) ---------- */
+const PANAL_MIN = params.get('panal')==='2';
+const LBL = { madres:['Rama de','Madres'], camp_rosario:['Campaña','del Rosario'], jufem:['Juventud','Femenina'], jumasc:['Juventud','Masculina'],
+  liga:['Liga','de Familias'], federacion:['Federación','de Familias'], instituto:['Instituto','de Familias'], peregrinos:['Peregrinos','de la Mater'] };
+const STAR = '<svg class="star" viewBox="0 0 24 24" role="img" aria-label="va al frente"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z" fill="#C9A95A" stroke="#8E6F1E" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+function ramaList(){
+  const list=RAMAS.map(r=>({r:r,km:state.byRama[r.id]||0}));
+  const top=Math.max.apply(null,list.map(x=>x.km));
+  const winners=list.filter(x=>x.km===top && top>0);
+  list.forEach(x=>{ x.lead = winners.length===1 && winners[0]===x; x.mine = myRama===x.r.id; });
+  return {list:list, scale:Math.max(30,top)};
 }
+function hexPath(cx,cy,s){ const w=Math.sqrt(3)*s/2; return 'M'+cx+' '+(cy-s)+'L'+(cx+w).toFixed(1)+' '+(cy-s/2)+'L'+(cx+w).toFixed(1)+' '+(cy+s/2)+'L'+cx+' '+(cy+s)+'L'+(cx-w).toFixed(1)+' '+(cy+s/2)+'L'+(cx-w).toFixed(1)+' '+(cy-s/2)+'Z'; }
+function ramasPanal(L){
+  const W=320, hw=W/3, s=hw/Math.sqrt(3), rowH=s*1.5, H=rowH*2+s*2+4, sd=s-2.5;
+  const rows=[[0,1,2],[3,4],[5,6,7]];
+  let defs='', body='';
+  rows.forEach((row,ri)=>{
+    const off=row.length===2?hw/2:0;
+    row.forEach((idx,ci)=>{
+      const it=L.list[idx], cx=hw/2+off+ci*hw, cy=s+2+ri*rowH, p=Math.min(1,it.km/L.scale);
+      const id='hx'+idx, hp=hexPath(cx,cy,sd), w=Math.sqrt(3)*sd/2, lb=LBL[it.r.id];
+      defs+='<clipPath id="'+id+'"><path d="'+hp+'"/></clipPath>';
+      body+='<g><path class="hx-base" d="'+hp+'"/><g clip-path="url(#'+id+')"><rect class="hx-fill" x="'+(cx-w).toFixed(1)+'" y="'+(cy-sd)+'" width="'+(2*w).toFixed(1)+'" height="'+(2*sd).toFixed(1)+'" style="--p:'+p.toFixed(3)+';--d:'+(idx*.07).toFixed(2)+'s"/></g>'
+        +(it.mine?'<path class="hx-mine" d="'+hp+'"/>':'')
+        +'<text class="hx-name" x="'+cx.toFixed(1)+'" y="'+(cy-13)+'">'+lb[0]+'</text><text class="hx-name" x="'+cx.toFixed(1)+'" y="'+(cy+2)+'">'+lb[1]+'</text>'
+        +'<text class="hx-km" x="'+cx.toFixed(1)+'" y="'+(cy+24)+'">'+(it.lead&&!PANAL_MIN?'★ ':'')+fmt(it.km)+' km</text></g>';
+    });
+  });
+  return '<svg viewBox="0 0 '+W+' '+H.toFixed(0)+'" role="img" aria-label="Km que suma cada rama"><defs>'+defs+'</defs>'+body+'</svg>';
+}
+function renderRank(){
+  const L=ramaList(), box=$('#ramas');
+  box.classList.toggle('min',PANAL_MIN);
+  box.innerHTML = ramasPanal(L);
+  const sk=state.byRama.sin_rama||0;
+  box.insertAdjacentHTML('beforeend','<div class="r-sin"><span>'+SIN_RAMA.rankName+(myRama==='sin_rama'?' · tu grupo':'')+'</span><span>'+fmt(sk)+' km</span></div>');
+  const mineR=byId(RAMAS,myRama), mk=mineR?(state.byRama[mineR.id]||0):0;
+  const note=$('#rank-note');
+  if(state.total===0) note.textContent='Todavía no hay aportes. ¡Sé la primera persona en sumar para tu rama!';
+  else if(mineR) note.innerHTML='Tu rama, <b>'+mineR.name+'</b>, ya lleva <b>'+fmt(mk)+' km</b>. ¡Sigamos sumando!';
+  else note.textContent='Elegí tu rama cuando sumes tu aporte.';
+}
+function replayRamas(on){ const b=$('#ramas'); b.classList.remove('play'); if(on){ void b.offsetWidth; b.classList.add('play'); } }
 function renderHow(){
   $('#how').innerHTML = TIPOS.map(t=>'<li><span class="ic">'+svgIcon(t.id,'#04427A',3.2)+'</span><div class="tx"><b>'+t.name+'</b><small>'+t.desc+'</small></div><div class="cnt">'+fmt(state.byTipo[t.id]||0)+'<small>km</small></div></li>').join('');
 }
@@ -749,7 +826,7 @@ let depth=0, current='home';
 function show(v){
   current=v;
   $$('.view').forEach(x=>x.classList.remove('open'));
-  if(v==='home'){ document.body.classList.remove('lock'); return; }
+  if(v==='home'){ document.body.classList.remove('lock'); setTimeout(()=>{ if(inView($('#camino'))) runCount(); if(inView($('#ranking'))) replayRamas(true); },60); return; }
   const el=$('#v-'+v); if(!el) return;
   el.classList.add('open'); el.scrollTop=0; document.body.classList.add('lock');
   const h=el.querySelector('h2'); if(h){ try{ h.focus({preventScroll:true}); }catch(e){} }
@@ -871,7 +948,7 @@ function drawImg(c,im,x,y,h){ const w=h*im.width/im.height; c.drawImage(im,x,y,w
 
 function designData(){
   const km=state.total, mm=mine.get().km||0, r=byId(ALL_RAMAS,myRama);
-  return {km:km, pct:Math.min(100,km/CFG.TOTAL_KM*100), falta:Math.max(0,CFG.TOTAL_KM-km), mine:mm, rama:r?r.name:'', cd:countdownData(), rank:rankData(), url:shortUrl()};
+  return {km:km, pct:Math.min(100,km/CFG.TOTAL_KM*100), falta:Math.max(0,CFG.TOTAL_KM-km), mine:mm, rama:r?r.name:'', cd:countdownData(), rank:rankData(), ramas:RAMAS.map(r=>({r:r,km:state.byRama[r.id]||0})), url:shortUrl()};
 }
 function footerUrl(c,S,D,col,y){ if(D.url) T(c,'Sumá tus km en  '+D.url,S.W/2,y,FS(700,32),col); }
 function ribbon(c,S,y,h,txt,size){ c.fillStyle=GOLD; c.fillRect(0,y,S.W,h); const sz=fit(c,txt,S.W-100,size,800,28); T(c,txt,S.W/2,y+h/2+sz*.36,FS(800,sz),NAVYD); }
@@ -946,20 +1023,20 @@ const DESIGNS = [
     if(v) T(c,'¡Están todos invitados!',S.W/2,1640,FS(800,64),NAVYD);
     footerUrl(c,S,D,NAVY,S.H-(v?90:34));
  }},
- { id:'ranking', title:'Competencia de ramas', draw(c,S,D){
+ { id:'ranking', title:'Las ramas en camino', draw(c,S,D){
     const v=S.v; bgCream(c,S); let y=v?170:120;
-    T(c,'¿Quién va ganando?',S.W/2,y,FSC(v?90:80),SKYD); y+=v?100:82;
-    T(c,'Competencia entre ramas',S.W/2,y,FS(800,v?66:58),NAVY); y+=v?60:30;
-    const rows=v?8:5, rh=v?150:(rows>5?100:132), max=Math.max(1,D.rank[0].km), x0=70, w=940;
-    for(let i=0;i<rows;i++){
-      const it=D.rank[i], ry=y+i*rh+(v?30:34);
-      c.fillStyle=i===0?GOLD:'#E8F0F9'; c.beginPath(); c.arc(x0+34,ry+30,34,0,7); c.fill(); T(c,(i+1)+'°',x0+34,ry+43,FS(800,34),NAVYD);
-      const nm=it.r.short, sz=fit(c,nm,600,v?42:40,700); T(c,nm,x0+92,ry+40,FS(700,sz),INK,'left'); T(c,fmt(it.km)+' km',x0+w,ry+40,FS(800,v?42:40),NAVY,'right');
-      rr(c,x0+92,ry+62,w-92,20,10); c.fillStyle='#EADFC4'; c.fill(); if(it.km>0){ rr(c,x0+92,ry+62,Math.max(20,(w-92)*it.km/max),20,10); c.fillStyle=GOLD; c.fill(); }
-    }
-    if(D.km===0){ T(c,'Todavía no arrancó: ¡sumá el primer km para tu rama!',S.W/2,S.H-(v?210:150),FS(700,v?40:32),INK); }
-    else T(c,'¿Y tu rama? Sumá tus km y subí en la tabla',S.W/2,S.H-(v?210:150),FS(700,v?42:36),INK);
-    footerUrl(c,S,D,NAVY,S.H-(v?110:60));
+    T(c,'Las ramas ya están',S.W/2,y,FSC(v?90:80),SKYD); y+=v?100:84;
+    T(c,'en camino a Schoenstatt',S.W/2,y,FS(800,fit(c,'en camino a Schoenstatt',940,v?66:58,800)),NAVY); y+=v?70:34;
+    const rows=D.ramas.length, rh=v?150:80, x0=70, w=940, sc=Math.max(30,Math.max.apply(null,D.ramas.map(x=>x.km)));
+    D.ramas.forEach((it,i)=>{
+      const ry=y+i*rh+(v?30:26);
+      c.fillStyle='#E8F0F9'; c.beginPath(); c.arc(x0+(v?34:28),ry+(v?30:22),v?34:28,0,7); c.fill(); c.beginPath(); c.arc(x0+(v?34:28),ry+(v?30:22),v?15:12,0,7); c.fillStyle=GOLD; c.fill(); c.lineWidth=v?4:3; c.strokeStyle='#8E6F1E'; c.stroke();
+      const nm=it.r.short, bx=x0+(v?92:76), fs=v?42:34, sz=fit(c,nm,600,fs,700); T(c,nm,bx,ry+(v?40:30),FS(700,sz),INK,'left'); T(c,fmt(it.km)+' km',x0+w,ry+(v?40:30),FS(800,fs),NAVY,'right');
+      const by=ry+(v?62:40), bh=v?20:16; rr(c,bx,by,x0+w-bx,bh,bh/2); c.fillStyle='#EADFC4'; c.fill(); if(it.km>0){ rr(c,bx,by,Math.max(bh,(x0+w-bx)*Math.min(1,it.km/sc)),bh,bh/2); c.fillStyle=GOLD; c.fill(); }
+    });
+    if(D.km===0){ T(c,'Todavía no arrancó: ¡sumá el primer km para tu rama!',S.W/2,S.H-(v?210:112),FS(700,v?40:32),INK); }
+    else T(c,'¿Cuánto lleva tu rama? Sumá tus km al camino',S.W/2,S.H-(v?210:112),FS(700,v?37:32),INK);
+    footerUrl(c,S,D,NAVY,S.H-(v?110:44));
  }},
  { id:'invitados', title:'Están todos invitados', draw(c,S,D){
     const v=S.v; bgNavy(c,S);
@@ -1087,6 +1164,15 @@ $('#retry').addEventListener('click',refresh);
   const cta=$('#cta');
   if('IntersectionObserver' in window){ new IntersectionObserver(es=>{ document.body.classList.toggle('show-bar',!es[0].isIntersecting); },{threshold:0}).observe(cta); }
   else document.body.classList.add('show-bar');
+})();
+
+// Contador de km y ramas: se animan cada vez que aparecen en pantalla
+(function(){
+  const cam=$('#camino'), ram=$('#ranking');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ camHidden=false; runCount(); } else { camHidden=true; if(!counting){ renderNumbers(); updateTrail(); } } }); },{threshold:.35}).observe(cam);
+    new IntersectionObserver(es=>{ es.forEach(e=>{ replayRamas(e.isIntersecting); }); },{threshold:.2}).observe(ram);
+  } else { $('#ramas').classList.add('play'); }
 })();
 
 /* =====================================================================
